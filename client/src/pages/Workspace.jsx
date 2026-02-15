@@ -37,7 +37,7 @@ const Workspace = () => {
     }, [form.search])
 
     const getWorkspace = async () => {
-        console.log("get workspace called", pagination);
+        // console.log("get workspace called", pagination);
         try {
             const res = await axios.get(`${server}/fetch/workspace?search=${form.search || ''}&limit=${pagination.limit || 10}&offset=${pagination.offset || 0}&sortBy=${pagination.sortBy || 'createdAt'}&sortOrder=${pagination.sortOrder || -1}`, {
                 headers: {
@@ -53,7 +53,7 @@ const Workspace = () => {
                     offset: pagination.offset
                 }))
             }
-            console.log(res);
+            // console.log(res);
         } catch (error) {
             alert(error.response.data.message)
         }
@@ -93,7 +93,7 @@ const Workspace = () => {
                     setEdit(false)
                     alert(res.data.message)
                 }
-                console.log(res);
+                // console.log(res);
             } catch (error) {
                 alert(error.response.data.message)
             }

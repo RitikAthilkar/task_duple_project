@@ -9,31 +9,31 @@ import { authorizeRoles } from "../middleware/roleMiddleware.js";
 const route = express(Router());
 
 //common routes
-route.get('/fetch/workspace', authorizeRoles("admin"), GetWorkspace)
-route.post('/fetch/user/project', authorizeRoles("admin", "user"), GetUserProject)
-route.post('/fetch/user/task', authorizeRoles("admin", "user"), GetUserTask)
-route.post('/fetch/project', authorizeRoles("admin", "user"), GetProject)
-route.post('/fetch/project/detail', authorizeRoles("admin", "user"), GetProjectDetail)
-route.post("/fetch/project/task", authorizeRoles("admin", "user"), GetProjectTask);
-route.put("/update/task/status", authorizeRoles("admin", "user"), updateTaskStatus);
+route.get('/fetch/workspace', isAuth, authorizeRoles("admin"), GetWorkspace)
+route.post('/fetch/user/project', isAuth, authorizeRoles("admin", "user"), GetUserProject)
+route.post('/fetch/user/task', isAuth, authorizeRoles("admin", "user"), GetUserTask)
+route.post('/fetch/project', isAuth, authorizeRoles("admin", "user"), GetProject)
+route.post('/fetch/project/detail', isAuth, authorizeRoles("admin", "user"), GetProjectDetail)
+route.post("/fetch/project/task", isAuth, authorizeRoles("admin", "user"), GetProjectTask);
+route.put("/update/task/status", isAuth, authorizeRoles("admin", "user"), updateTaskStatus);
 
 // Auth routes
-route.post('/auth/register', authorizeRoles("admin", "user"), Register)
-route.post('/auth/login', authorizeRoles("admin", "user"), Login)
+route.post('/auth/register', Register)
+route.post('/auth/login', Login)
 
 //Admin routes
-route.post('/admin/create/workspace', authorizeRoles("admin"), CreateWorkSpace)
-route.post('/admin/create/project', authorizeRoles("admin"), CreateProject)
-route.post('/admin/fetch/user', authorizeRoles("admin", "user"), FetchUser)
-route.post('/admin/fetch/user-details', authorizeRoles("admin", "user"), FetchUserDetails)
-route.post('/admin/fetch/project/member', authorizeRoles("admin"), FetchProjectMember)
-route.put('/admin/assigned-member', authorizeRoles("admin"), AssignMember)
-route.put('/admin/remove-member', authorizeRoles("admin"), RemoveMember)
-route.post('/admin/create/task', authorizeRoles("admin"), CreateTask)
-route.delete('/admin/delete/task/:taskId', authorizeRoles("admin"), DeleteTask)
+route.post('/admin/create/workspace', isAuth, authorizeRoles("admin"), CreateWorkSpace)
+route.post('/admin/create/project', isAuth, authorizeRoles("admin"), CreateProject)
+route.post('/admin/fetch/user', isAuth, authorizeRoles("admin", "user"), FetchUser)
+route.post('/admin/fetch/user-details', isAuth, authorizeRoles("admin", "user"), FetchUserDetails)
+route.post('/admin/fetch/project/member', isAuth, authorizeRoles("admin"), FetchProjectMember)
+route.put('/admin/assigned-member', isAuth, authorizeRoles("admin"), AssignMember)
+route.put('/admin/remove-member', isAuth, authorizeRoles("admin"), RemoveMember)
+route.post('/admin/create/task', isAuth, authorizeRoles("admin"), CreateTask)
+route.delete('/admin/delete/task/:taskId', isAuth, authorizeRoles("admin"), DeleteTask)
 
-route.delete('/admin/delete/project/:projectId', authorizeRoles("admin"), DeleteProject)
-route.delete('/admin/delete/workspace/:workspaceId', authorizeRoles("admin"), DeleteWorkspace)
+route.delete('/admin/delete/project/:projectId', isAuth, authorizeRoles("admin"), DeleteProject)
+route.delete('/admin/delete/workspace/:workspaceId', isAuth, authorizeRoles("admin"), DeleteWorkspace)
 
 route.get('/', (req, res) => {
     res.send("server running ");
