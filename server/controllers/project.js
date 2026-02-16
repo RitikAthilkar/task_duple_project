@@ -207,7 +207,9 @@ export const RemoveMember = async (req, res) => {
         const updateprojectmember = await Project.findByIdAndUpdate(
             projectId,
             {
-                $pull: { members: members }   
+                $pull: {
+                    members: { $in: members }
+                }
             },
             { new: true }
         );
