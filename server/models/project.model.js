@@ -27,6 +27,11 @@ const projectSchema = new mongoose.Schema({
     due_date: {
         type: Date,
         required:true,
+    },
+    project_status: {
+        type: String,
+        enum: ['pending', 'inprocess', 'completed'],
+        default: 'pending'
     }
 },{timestamps:true})
 

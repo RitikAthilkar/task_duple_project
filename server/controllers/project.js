@@ -6,7 +6,7 @@ import { Types } from "mongoose";
 
 export const CreateProject = async (req, res) => {
     try {
-        const { name, description, workspaceId, due_date, members, remark, _id } = req.body;
+        const { name, description, workspaceId, due_date, members, remark, _id,  } = req.body;
         if (!name || !workspaceId || !description || !due_date) {
             return res.status(400).json({
                 success: false,
@@ -59,6 +59,7 @@ export const CreateProject = async (req, res) => {
            const createproject = await Project.create({
                name, description, workspaceId, due_date, members, remark
            })
+           console.log(createproject.status);
            if (members) {
                const UpdateMember = await User.updateMany({ _id: { $in: members } }, { $set: { status: 'assigned' } })
            }
@@ -67,7 +68,7 @@ export const CreateProject = async (req, res) => {
 
         return res.status(200).json({
             success: true,
-            message: 'Project created'
+            message: _id ? 'Project updated successfully' : 'Project created successfully'
         })
 
     } catch (error) {
@@ -97,7 +98,8 @@ export const GetProject = async (req, res) => {
                     ...(search && {
                         $or: [
                             { name: { $regex: search, $options: 'i' } },
-                            { description: { $regex: search, $options: 'i' } }
+                            { description: { $regex: search, $options: 'i' } },
+                            { status: { $regex: search, $options: 'i' } },
                         ]
                     })
                 }
@@ -174,10 +176,11 @@ export const AssignMember = async (req, res) => {
     }
 
     try {
-        const updateprojectmember = await Project.updateMany({ _id: new Types.ObjectId(projectId) },{$set:{members:members}})
+        const updateprojectmember = await Project.updateMany({ _id: new Types.ObjectId(projectId.id) },{$set:{members:members}})
 
         if(updateprojectmember){
             const UpdateMemberstatus = await User.updateMany({ _id: { $in: members } }, { $set: { status: 'assigned' } })
+            const updateProjectStatus = await Project.findByIdAndUpdate({ _id: projectId.id }, { $set: { project_status: 'inprocess' } })
         }
         return res.status(200).json({
             success: true,
@@ -201,11 +204,29 @@ export const RemoveMember = async (req, res) => {
     }
 
     try {
-        const updateprojectmember = await Project.updateMany({ _id: new Types.ObjectId(projectId) },{$unset:{members:members}})
+        const updateprojectmember = await Project.findByIdAndUpdate(
+            projectId,
+            {
+                $pull: { members: members }   
+            },
+            { new: true }
+        );
 
+        const project = await Project.findById(projectId);
+        if (project.members.length === 0) {
+            await Project.findByIdAndUpdate(
+                projectId,
+                { $set: { status: "pending" } }
+            );
+        }
+        if(updateprojectmember.members.length === 0){
+            const updateProjectStatus = await Project.findByIdAndUpdate({ _id: new Types.ObjectId(projectId) }, { $set: { project_status: 'pending' } })
+        }
         if(updateprojectmember){
             const UpdateMemberstatus = await User.updateMany({ _id: { $in: members } }, { $set: { status: 'available' } })
         }
+
+
         return res.status(200).json({
             success: true,
             message: 'Member removed from project'

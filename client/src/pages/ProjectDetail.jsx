@@ -225,7 +225,8 @@ const Workspace = () => {
                                         <th className='p-2 font-semibold'>Workaspace Name</th>
                                         <th className='p-2 font-semibold'>Due Date</th>
                                         <th className='p-2 font-semibold'>Total Members</th>
-                                        <th className='p-2 font-semibold'>Total Task assigned</th>
+                                        <th className='p-2 font-semibold'>Project Status</th>
+                                   
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -233,7 +234,8 @@ const Workspace = () => {
                                         <td className='p-2'>{project?.workspaceId?.name}</td>
                                         <td className='p-2'>{formatDate(project?.due_date)}</td>
                                         <td className='p-2'>{project?.members?.length}</td>
-                                        <td className='p-2'>{projectTasks?.length}</td>
+                                        <td className='p-2'>{project?.project_status}</td>
+                            
                                     </tr>
                                 </tbody>
                             </table>
@@ -267,8 +269,9 @@ const Workspace = () => {
                             <div className='flex justify-between'>
                             <h2 className='text-xl capitalize'>Members</h2>
                             <div>
-                               <button onClick={() => { setModalbtn(true) }} className='border border-gray-300 bg-blue-500/10 text-blue-800 font-bold p-1 text-sm rounded-md hover:bg-blue-700 hover:text-white hover:border-0 mb-3'><i class="bi bi-plus-circle me-2 "></i>Add Member</button>
                                 <button onClick={() => { setTaskModalbtn(true) }} className='border border-gray-300 p-1 px-2 text-sm rounded-md bg-black text-white hover:text-white hover:border-0 mb-3 ms-2'><i class="bi bi-plus-circle me-2 "></i>Create Task</button>
+                               <button onClick={() => { setModalbtn(true) }} className='border border-gray-300 bg-blue-500/10 text-blue-800 font-bold p-1 text-sm rounded-md hover:bg-blue-700 hover:text-white hover:border-0 ms-2'><i class="bi bi-plus-circle me-2 "></i>Add Member</button>
+                               {/* <button onClick={() => { setModalbtn(true) }} className='border border-gray-300 bg-green-500/10 text-green-800 font-bold p-1 text-sm rounded-md hover:bg-green-700 hover:text-white hover:border-0 ms-2'><i class="bi bi-plus-circle me-2 "></i>Invite Member</button> */}
                             </div>
                             </div>
                                 <p className='text-red-600 text-xs '>*To view and edit assigned tasks click on the view task button on member card</p>
