@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import logo from '../assets/logo/logo-duple.svg'
+import logo from '../assets/logo/logo3.png'
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../global/AuthContex';
 import {Modal} from 'antd'
@@ -31,7 +31,7 @@ const SideBar = () => {
             </div>
 
             <div className='absolute bottom-0 p-3 border w-full '>
-                  <div className='bg-orange-500  h-[20vh] rounded-xl p-2 flex flex-col justify-between items-center'>
+                  <div className='btn  h-[20vh] rounded-xl p-2 flex flex-col justify-between items-center'>
                    <h2 className='text-white text-sm'>Contact for technical support </h2>
                                 <button onClick={()=>{setModalbtn(true)}} className='bg-white p-2 rounded-lg text-sm'><i class="bi bi-headset"></i> Technical Support</button>
                 </div>
@@ -47,7 +47,7 @@ const SideBar = () => {
               >
                   <div className='flex flex-col justify-center items-center'>
                             <h1 className='text-lg'>For technical support, please contact the developer.</h1>
-                          <button className='bg-orange-500 text-white p-2 rounded-lg mt-3' onClick={() => { window.open(`https://wa.me/8623988058`, '_blank') }}>Contact Developer</button>
+                          <button className='btn text-white p-2 rounded-lg mt-3' onClick={() => { window.open(`https://wa.me/8623988058`, '_blank') }}>Contact Developer</button>
                   </div>
                 
               </Modal>

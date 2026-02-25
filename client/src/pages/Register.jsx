@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import logo from '../assets/logo/logo-duple.svg'
+import logo from '../assets/logo/logo.png'
 import { useNavigate } from 'react-router-dom';
 const Register = () => {
     const [form, setForm] = useState({});
@@ -30,19 +30,20 @@ const Register = () => {
     }
     return (
         <>
-            <div className='w-screen min-h-screen '>
-                <div className='grid grid-cols-12 w-full  h-screen'>
-                    <div className='col-span-12 lg:col-span-6  flex justify-center mt-[10vw]'>
-                        <div>
+            <div className='w-screen min-h-screen'>
+                <div className='grid grid-cols-12 w-full  h-screen bg-image' >
+                    <div className='col-span-12 lg:col-span-6  flex justify-center '>
+                        <div className='flex justify-start items-center flex-col ms-[10vw] mt-[10vw]'>
                             <img src={logo} alt="logo" className='w-[20vw] mb-3' />
-                            <h2 className='text-3xl sm:text-4xl font-bold'>Project Management System</h2>
+                            <h2 className='text-3xl sm:text-4xl font-bold '>Taskzora</h2>
+                            <h2 className='text-3xl sm:text-2xl font-bold '>Project Management System</h2>
                              {/* {JSON.stringify(form)} */}
                         </div>
 
                     </div>
                     <div className='col-span-12 lg:col-span-6   flex justify-center items-center '>
-                        <form onSubmit={handleSubmit} >
-                            <div className='bg-gradient-to-b from-orange-500 to-orange-600 p-3 rounded rounded-xl  shadow-2xl w-full sm:w-[30vw]'>
+                        <form onSubmit={handleSubmit} > 
+                            <div className='bg-gradient-to-b from-cyan-400 to-blue-900 p-3 rounded rounded-xl  shadow-2xl w-full sm:w-[30vw]'>
                                 <div className='text-center '>
                                     <h2 className='text-xl font-bold text-white'>Registration</h2>
                                 </div>
@@ -77,7 +78,7 @@ const Register = () => {
                                     {/* <h2 className='text-sm'>Login With Email</h2> */}
                                 </div>
                                 <div className="flex flex-col my-3">
-                                    <button type='submit' className='bg-white p-1 rounded-xl text-orange-500 font-semibold'>Submit</button>
+                                    <button type='submit' className='bg-white p-1 rounded-xl text-green-700 font-semibold'>Submit</button>
                                     <div className='text-center my-2'>
                                         <h2 className='text-sm text-white'>Already have an account? <span className='text-white font-semibold cursor-pointer' onClick={() => navigate('/login')}>Login</span></h2>
                                     </div>

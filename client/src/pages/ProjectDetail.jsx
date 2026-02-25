@@ -309,7 +309,7 @@ const Workspace = () => {
                         </div>
                         <div className='flex justify-between items-center mt-5 border-t pt-3'>
                             <p className='text-red-600 text-xs '>*Please note once deleted cannot be undone </p>
-                            <button onClick={(e) => { handleSubmit(e, 2) }} className='bg-red-500 text-white p-1 text-sm rounded-md hover:bg-orange-500 hover:text-white hover:border-0 mb-3 ms-2' >Delete Project</button>
+                            <button onClick={(e) => { handleSubmit(e, 2) }} className='bg-red-500 text-white p-1 text-sm rounded-md hover:btn hover:text-white hover:border-0 mb-3 ms-2' >Delete Project</button>
                         </div>
                     </div>
                    
@@ -343,8 +343,8 @@ const Workspace = () => {
 
                         <div className="col-span-12">
                             <div className="flex w-full justify-end  my-3">
-                                <button type='button' className='border border-orange-500 p-2 rounded-md  font-semibold' onCancel={() => { setModalbtn(false) }}>Cancel</button>
-                                <button type='submit' className='bg-orange-500 p-2 rounded-md text-white font-semibold ms-2'>Submit</button>
+                                <button type='button' className='border border-gray-500 p-2 rounded-md  font-semibold' onCancel={() => { setModalbtn(false) }}>Cancel</button>
+                                <button type='submit' className='btn p-2 rounded-md text-white font-semibold ms-2'>Submit</button>
                             </div>
                         </div>
                     </div>
@@ -409,8 +409,8 @@ const Workspace = () => {
                         </div>
                         <div className="col-span-12">
                             <div className="flex w-full justify-end  my-3">
-                                <button type='submit' className='border border-orange-500 p-2 rounded-md  font-semibold' onCancel={() => { setTaskModalbtn(false) }}>Cancel</button>
-                                <button type='submit' className='bg-orange-500 p-2 rounded-md text-white font-semibold ms-2'>Submit</button>
+                                <button type='submit' className='border border-gray-500 p-2 rounded-md  font-semibold' onCancel={() => { setTaskModalbtn(false) }}>Cancel</button>
+                                <button type='submit' className='btn p-2 rounded-md text-white font-semibold ms-2'>Submit</button>
                             </div>
                         </div>
                     </div>

@@ -10,3 +10,16 @@
 body {
     font-family: 'Poppins', sans-serif;
 }
+
+.bg-image {
+    background-image: url('./assets/image/bg.png');
+    background-size: cover;
+    background-position: center;
+      background-repeat: no-repeat;
+}
+.btn{
+   background: linear-gradient(to right, #009eca, #024290);
+}
+.btn:hover {
+  background: #024290; 
+}

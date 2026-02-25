@@ -164,12 +164,12 @@ const Workspace = () => {
                                     members: [], 
                                     due_date:'',
                                     project_remark:''
-                                }) }} className='bg-orange-500 text-white p-1 text-sm rounded-md hover:bg-orange-600 hover:text-white hover:border-0'><i class="bi bi-plus-circle me-2 "></i>Add Project</button>
+                                }) }} className='btn text-white p-1 text-sm rounded-md  hover:text-white hover:border-0'><i class="bi bi-plus-circle me-2 "></i>Add Project</button>
                             </div>
                             <div className='flex '>
                             
                                 <input name='search' onChange={handleChange} className='p-1  rounded-md text-sm  border-gray-300 focus:outline-0 focus:border-gray-100 border' placeholder='search project' />
-                                <button onClick={handleSearch} className="p-2 rounded-md ms-1 bg-orange-500 text-white text-sm">Search</button>
+                                <button onClick={handleSearch} className="p-2 rounded-md ms-1 btn text-white text-sm">Search</button>
                             </div>
                         </div>
                         {project && project.length!=0?project.reverse().map((item, index) => {
@@ -277,8 +277,8 @@ const Workspace = () => {
                         </div>
                         <div className="col-span-12">
                             <div className="flex w-full justify-end  my-3">
-                                <button type='submit' className='border border-orange-500 p-2 rounded-md  font-semibold' onCancel={() => { setModalbtn(false) }}>Cancel</button>
-                                <button type='submit' className='bg-orange-500 p-2 rounded-md text-white font-semibold ms-2'>Submit</button>
+                                <button type='submit' className='border border-gray-500 p-2 rounded-md  font-semibold' onCancel={() => { setModalbtn(false) }}>Cancel</button>
+                                <button type='submit' className='btn p-2 rounded-md text-white font-semibold ms-2'>Submit</button>
                             </div>
                         </div>
                     </div>

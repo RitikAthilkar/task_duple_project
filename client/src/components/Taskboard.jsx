@@ -213,7 +213,7 @@ export default function TaskBoard({ userId, projectId }) {
                         <div className="col-span-12">
                             <div className="flex w-full justify-end  my-3">
                                 <button type='submit' className='border border-orange-500 p-2 rounded-md  font-semibold' onCancel={() => { setTaskModalbtn(false) }}>Cancel</button>
-                                <button type='submit' className='bg-orange-500 p-2 rounded-md text-white font-semibold ms-2'>Submit</button>
+                                <button type='submit' className='btn p-2 rounded-md text-white font-semibold ms-2'>Submit</button>
                             </div>
                         </div>
                     </div>

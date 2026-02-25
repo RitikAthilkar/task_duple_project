@@ -37,7 +37,7 @@ const Nav = ({title}) => {
                               </li>
 
 
-                              <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-red-500" onClick={()=>{localStorage.removeItem("token");navigate('/login')}}>
+                              <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-green-700" onClick={()=>{localStorage.removeItem("token");navigate('/login')}}>
                                   Logout
                               </li>
 

@@ -16,7 +16,7 @@ const Workspace = () => {
                 <div className='col-span-12 flex justify-end'>
                     <div className='flex '>
                     <input className='p-1  rounded-md text-sm  border-gray-300 focus:outline-0 focus:border-gray-100 border' placeholder='search workspace'/>
-                        <button className="p-2 rounded-md ms-1 bg-orange-500 text-white text-sm">Search</button>
+                        <button className="p-2 rounded-md ms-1 btn text-white text-sm">Search</button>
                     </div>
                 </div>
                 {workspace.map((item, index) => {

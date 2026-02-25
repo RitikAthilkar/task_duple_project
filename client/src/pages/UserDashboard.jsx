@@ -73,7 +73,7 @@ const Workspace = () => {
                     <div className='p-3'>
                         {/* {JSON.stringify(user)} */}
                         {/* <div className='flex justify-end'>
-                            <button onClick={(e) => { handleSubmit(e, 2) }} className='bg-red-500 text-white p-1 text-sm rounded-md hover:bg-orange-500 hover:text-white hover:border-0 mb-3 ms-2' >Remove From Project</button>
+                            <button onClick={(e) => { handleSubmit(e, 2) }} className='bg-red-500 text-white p-1 text-sm rounded-md hover:btn hover:text-white hover:border-0 mb-3 ms-2' >Remove From Project</button>
                         </div> */}
 
                         <div className='flex justify-between'>

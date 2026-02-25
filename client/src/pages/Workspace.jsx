@@ -139,11 +139,11 @@ const Workspace = () => {
                                     setWorkspacebtn(true);
                                     setEdit(false);
                                     setForm({ name: "", Description: "" });
-                                }} className='bg-orange-500 text-white p-1 text-sm rounded-md hover:bg-orange-600 hover:text-white hover:border-0'><i class="bi bi-plus-circle me-2 "></i>Add Workspace</button>
+                                }} className='btn text-white p-1 text-sm rounded-md hover:border-0 '><i class="bi bi-plus-circle me-2 "></i>Add Workspace</button>
                             </div>
                             <div className='flex '>
                                 <input onChange={handleChange} name="search" value={form.search || ''} className='p-1  rounded-md text-sm  border-gray-300 focus:outline-0 focus:border-gray-100 border' placeholder='search workspace' />
-                                <button onClick={handleSearch} className="p-2 rounded-md ms-1 bg-orange-500 text-white text-sm">Search</button>
+                                <button onClick={handleSearch} className="p-2 rounded-md ms-1 btn text-white text-sm">Search</button>
                             </div>
                         </div>
                         {workspace.length != 0 ? workspace.reverse().map((item, index) => {
@@ -250,8 +250,8 @@ const Workspace = () => {
                     </div>
 
                     <div className="flex w-full justify-end  my-3">
-                        <button type='button' className='border border-orange-500 p-2 rounded-md  font-semibold' onCancel={() => { setWorkspacebtn(false) }}>Cancel</button>
-                        <button type='submit' className='bg-orange-500 p-2 rounded-md text-white font-semibold ms-2'>Submit</button>
+                        <button type='button' className='border border-gray-500 p-2 rounded-md  font-semibold' onCancel={() => { setWorkspacebtn(false) }}>Cancel</button>
+                        <button type='submit' className='btn p-2 rounded-md text-white font-semibold ms-2'>Submit</button>
                     </div>
                 </form>
 
